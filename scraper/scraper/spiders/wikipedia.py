@@ -53,7 +53,7 @@ class WikipediaSpider(scrapy.Spider):
         """
         year = datetime.now().year
         day, month = date.split(' de ')
-        month = self.month_mapping[month]
+        month = self.month_mapping[month.lower()]
         date = datetime.strptime(f'{year}-{month}-{day}', '%Y-%m-%d').date()
         return date
 
@@ -66,6 +66,7 @@ class WikipediaSpider(scrapy.Spider):
             cities = numbers.split(',')
             for city in cities:
                 if city.strip():
+                    city = city.replace('(3LPZ', '(3)LPZ')  # temp fix for crappy data
                     num, city = city.strip().split(')')
                     num = num.strip()[1:]
                     if num == '!':

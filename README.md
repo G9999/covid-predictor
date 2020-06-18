@@ -11,8 +11,8 @@ RNN implementation to predict the number of COVID-19 cases.
 To run the RNN implementation, it's recommended to create and activate a virtual enviroment if you don't have one already:
 
 ```bash
-conda create --name condapredictor python=3.7
-conda activate condapredictor
+conda create --name covidpredictor python=3.7
+conda activate covidpredictor
 ```
 
 #### 2.- Install the dependencies
